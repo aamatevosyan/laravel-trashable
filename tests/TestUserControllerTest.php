@@ -5,13 +5,13 @@ namespace Aamatevosyan\LaravelTrashable\Tests;
 use Aamatevosyan\LaravelTrashable\Tests\Http\Controllers\TestUserController;
 use Aamatevosyan\LaravelTrashable\Tests\Models\TestUser;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Request;
 
 class TestUserControllerTest extends TestCase
 {
     private function assertModelNotFound($fn): void
     {
         $failed = false;
+
         try {
             $fn();
         } catch (ModelNotFoundException $e) {
@@ -60,8 +60,8 @@ class TestUserControllerTest extends TestCase
 
         self::assertEquals($trashed->id, $controller->getOnlyTrashed($trashed->id)->id);
 
-        $this->assertModelNotFound(fn() => $controller->getOnlyTrashed($deleted->id));
-        $this->assertModelNotFound(fn() => $controller->getOnlyTrashed($user->id));
+        $this->assertModelNotFound(fn () => $controller->getOnlyTrashed($deleted->id));
+        $this->assertModelNotFound(fn () => $controller->getOnlyTrashed($user->id));
     }
 
     /** @test */
@@ -79,8 +79,8 @@ class TestUserControllerTest extends TestCase
 
         self::assertEquals($user->id, $controller->getWithoutTrashed($user->id)->id);
 
-        $this->assertModelNotFound(fn() => $controller->getWithoutTrashed($deleted->id));
-        $this->assertModelNotFound(fn() => $controller->getWithoutTrashed($trashed->id));
+        $this->assertModelNotFound(fn () => $controller->getWithoutTrashed($deleted->id));
+        $this->assertModelNotFound(fn () => $controller->getWithoutTrashed($trashed->id));
     }
 
     /** @test */
@@ -99,6 +99,6 @@ class TestUserControllerTest extends TestCase
         self::assertEquals($user->id, $controller->getWithTrashed($user->id)->id);
         self::assertEquals($trashed->id, $controller->getWithTrashed($trashed->id)->id);
 
-        $this->assertModelNotFound(fn() => $controller->getWithoutTrashed($deleted->id));
+        $this->assertModelNotFound(fn () => $controller->getWithoutTrashed($deleted->id));
     }
 }

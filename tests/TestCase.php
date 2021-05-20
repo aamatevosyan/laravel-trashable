@@ -2,9 +2,9 @@
 
 namespace Aamatevosyan\LaravelTrashable\Tests;
 
+use Aamatevosyan\LaravelTrashable\LaravelTrashableServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Aamatevosyan\LaravelTrashable\LaravelTrashableServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,7 +13,8 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn(string $modelName
+            fn (
+                string $modelName
             ) => 'Aamatevosyan\\LaravelTrashable\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
 

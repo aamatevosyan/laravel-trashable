@@ -67,7 +67,7 @@ trait HasTrash
      */
     public function getDefaultBuilder($value = null): Builder
     {
-        if (!$value) {
+        if (! $value) {
             $value = request()->route($this->getModelName());
         }
 

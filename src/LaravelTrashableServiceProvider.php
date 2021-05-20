@@ -2,9 +2,9 @@
 
 namespace Aamatevosyan\LaravelTrashable;
 
+use Aamatevosyan\LaravelTrashable\Commands\LaravelTrashableCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Aamatevosyan\LaravelTrashable\Commands\LaravelTrashableCommand;
 
 class LaravelTrashableServiceProvider extends PackageServiceProvider
 {
