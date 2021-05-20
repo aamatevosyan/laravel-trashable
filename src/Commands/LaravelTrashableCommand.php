@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Aamatevosyan\LaravelTrashable\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelTrashableCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-trashable';
 
     public $description = 'My command';
 
